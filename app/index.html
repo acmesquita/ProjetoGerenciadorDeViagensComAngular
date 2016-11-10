@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zula2 | v2.0.0</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="libraries/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body ng-app="app">
+    <div class="container" ng-controller="viagemCtrl">
+      <div class="well">
+        <h1>Gerenciador de Viagens</h1>
+      </div>
+      <form class="form" name="formViagem">
+        <input type="text" name="id" ng-model="viagem.id" hidden="hidden">
+        <div class="form-group col-md-12">
+          <label for="destino">Destino</label>
+          <input type="text" id="destino" class="form-control" ng-model="viagem.destino"/>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="dataInicio">Data Início</label>
+          <input type="date" id="dataInicio" class="form-control" ng-model="viagem.dataInicio"/>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="dataFim">Data Fim</label>
+          <input type="date" id="dataFim" class="form-control"  ng-model="viagem.dataFim"/>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="tipo">Tipo de Viagem</label>
+          <select class="form-control" name="tipo" ng-model="viagem.tipoViagem">
+            <option value="Lazer">Lazer</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+      <div class="form-group col-md-6">
+        <label class="" for="transporte">Transporte</label>
+        <select class="form-control" name="transporte" ng-model="viagem.transporte">
+          <option value="Carro">Carro</option>
+          <option value="Ônibus">Ônibus</option>
+          <option value="Avião">Avião</option>
+          <option value="Navio">Navio</option>
+          <option value="Bicicleta">Bicicleta</option>
+          <option value="A pé">A pé</option>
+        </select>
+      </div>
+      <div class="form-group col-md-5">
+        <ng-viagem-submit submit="adicionar(viagem)"></ng-viagem-submit>
+      </div>
+    </form>
+
+    <!-- Tabela com as coisa  -->
+    <table name="tableCtrl" class="table"> <!--Testa se existem ocorrencias -->
+      <thead>
+        <th>ID</th>
+        <th>Destino</th>
+        <th>Data Início</th>
+        <th>Data Fim</th>
+        <th>Tipo de Viagem</th>
+        <th>Transporte</th>
+        <th>Despesas</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="viagem in viagens"> <!-- Percorre as ocorrencias -->
+          <td>{{viagem.id}}</td>
+          <td>{{viagem.destino}}</td>
+          <td>{{viagem.dataInicio}}</td>
+          <td>{{viagem.dataFim}}</td>
+          <td>{{viagem.tipoViagem}}</td>
+          <td>{{viagem.transporte}}</td>
+          <td>
+            <a href="despesas.html" class="btn btn-info">Despesas</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <script type="application/javascript" src="libraries/angular/angular.min.js"></script>
+    <script type="application/javascript" src="js/main.js"></script>
+    <script type="application/javascript" src="js/controller/viagem.controller.js"></script>
+    <script type="application/javascript" src="js/directives/ng-viagem-submit.directive.js"></script>
+    <script type="text/javascript">
+        var date = new Date();
+
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+
+        var today = year + "-" + month + "-" + day;
+        document.getElementById('dataInicio').value = today;
+        document.getElementById('dataFim').value = today;
+
+    </script>
+  </body>
+</html>

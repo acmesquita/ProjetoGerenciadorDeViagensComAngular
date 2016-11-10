@@ -1,0 +1,19 @@
+{
+  "name": "zula2",
+  "authors": [
+    "catharina-mesquita <ana.catharina@hotmail.com>"
+  ],
+  "description": "Gerenciador de despesas de viagens",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "zula2"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "repository": "",
+  "private": true,
+  "dependencies": {
+    "angular":"latest","bootstrap":"latest"
+  }
+}

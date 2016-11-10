@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Zula2 | v2.0.0</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="libraries/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body ng-app="app">
+    <div class="container" ng-controller="despesasCtrl">
+      <div class="well">
+        <h2>Despesas</h2>
+      </div>
+      <form class="form" name="formDespesa">
+        <input type="text" name="id" ng-model="despesa.id" hidden="hidden">
+        <div class="form-group col-md-6">
+          <label for="dataDespesa">Data</label>
+          <input type="date" id="dataDespesa" class="form-control" ng-model="despesa.dataDespesa" value=""/>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="tipo">Tipo de Gasto</label>
+          <select class="form-control" name="tipo" ng-model="despesa.tipo">
+            <option value="Gasolina">Gasolina</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Outros">Outros</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="" for="valor">Valor</label>
+          <input type="text" name="valor" class="form-control" placeholder="R$" ng-model="despesa.valor"/>
+        </div>
+        <div class="form-group col-md-6">
+          <br/>
+          <a href="#" class="btn btn-primary">Salvar</a>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- scripts  -->
+    <script type="application/javascript" src="libraries/angular/angular.min.js"></script>
+    <script type="application/javascript" src="js/main.js"></script>
+    <script type="application/javascript" src="js/controller/dividas.controller.js"></script>
+    <script type="text/javascript">
+        var date = new Date();
+
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+
+        var today = year + "-" + month + "-" + day;
+        document.getElementById("dataDespesa").value = today;
+    </script>
+  </body>
+</html>
