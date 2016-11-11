@@ -5,7 +5,7 @@ angular.module('app').directive('ngViagemSubmit', function() {
     scope: {
       submit: '&',
     },
-    template: '<button type="button" class="btn btn-success">Adicionar Viagem</button>',
+    template: '<button type="button" class="btn btn-primary">Salvar</button>',
     link: function($scope, $element, $attrs, viagemCtrl){
         $element.on('click', function() {
           if (viagemCtrl.$valid){

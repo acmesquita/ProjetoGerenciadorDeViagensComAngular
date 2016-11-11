@@ -8,46 +8,53 @@
   </head>
   <body ng-app="app">
     <div class="container" ng-controller="viagemCtrl">
-      <div class="well">
+      <div class="well well-sm">
         <h1>Gerenciador de Viagens</h1>
       </div>
-      <form class="form" name="formViagem">
-        <input type="text" name="id" ng-model="viagem.id" hidden="hidden">
-        <div class="form-group col-md-12">
-          <label for="destino">Destino</label>
-          <input type="text" id="destino" class="form-control" ng-model="viagem.destino"/>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="dataInicio">Data Início</label>
-          <input type="date" id="dataInicio" class="form-control" ng-model="viagem.dataInicio"/>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="dataFim">Data Fim</label>
-          <input type="date" id="dataFim" class="form-control"  ng-model="viagem.dataFim"/>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="tipo">Tipo de Viagem</label>
-          <select class="form-control" name="tipo" ng-model="viagem.tipoViagem">
-            <option value="Lazer">Lazer</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Outro">Outro</option>
-          </select>
-        </div>
-      <div class="form-group col-md-6">
-        <label class="" for="transporte">Transporte</label>
-        <select class="form-control" name="transporte" ng-model="viagem.transporte">
-          <option value="Carro">Carro</option>
-          <option value="Ônibus">Ônibus</option>
-          <option value="Avião">Avião</option>
-          <option value="Navio">Navio</option>
-          <option value="Bicicleta">Bicicleta</option>
-          <option value="A pé">A pé</option>
-        </select>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h3>Adicionar uma nova viagem</h3></div>
+        <div class="panel-body">
+          <form class="form" name="formViagem">
+            <input type="text" name="id" ng-model="viagem.id" hidden="hidden">
+            <div class="form-group col-md-12">
+              <label for="destino">Destino</label>
+              <input type="text" id="destino" class="form-control" ng-model="viagem.destino"/>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="dataInicio">Data Início</label>
+              <input type="date" id="dataInicio" class="form-control" ng-model="viagem.dataInicio"/>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="dataFim">Data Fim</label>
+              <input type="date" id="dataFim" class="form-control"  ng-model="viagem.dataFim"/>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="tipo">Tipo de Viagem</label>
+              <select class="form-control" name="tipo" ng-model="viagem.tipoViagem">
+                <option value="Lazer">Lazer</option>
+                <option value="Trabalho">Trabalho</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+          <div class="form-group col-md-6">
+            <label class="" for="transporte">Transporte</label>
+            <select class="form-control" name="transporte" ng-model="viagem.transporte">
+              <option value="Carro">Carro</option>
+              <option value="Ônibus">Ônibus</option>
+              <option value="Avião">Avião</option>
+              <option value="Navio">Navio</option>
+              <option value="Bicicleta">Bicicleta</option>
+              <option value="A pé">A pé</option>
+            </select>
+          </div>
+          <div class="form-group col-md-5">
+            <ng-viagem-submit submit="adicionar(viagem)"></ng-viagem-submit>
+          </div>
+        </form>
       </div>
-      <div class="form-group col-md-5">
-        <ng-viagem-submit submit="adicionar(viagem)"></ng-viagem-submit>
-      </div>
-    </form>
+    </div>
+
 
     <!-- Tabela com as coisa  -->
     <table name="tableCtrl" class="table"> <!--Testa se existem ocorrencias -->
